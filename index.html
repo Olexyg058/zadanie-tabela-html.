@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadanie 9 - Tabela Kart Graficznych</title>
+
+    <style>
+        /* Kryterium: Zastosuj dwa różne rodzaje czcionek (Trebuchet dla strony, Arial dla tabeli) */
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 30px;
+            background-color: #ffffff;
+        }
+
+        /* 
+           Kryterium: Obramowanie ciekawe (dokładnie jak na zdjęciu - czerwone).
+           Kryterium: Obramowanie zewnętrzne 4 razy grubsze niż wewnętrzne (4px vs 1px).
+        */
+        table {
+            width: 850px;
+            border-collapse: collapse;
+            border: 4px solid rgb(210, 0, 0); 
+            font-family: Arial, sans-serif; /* Druga czcionka */
+        }
+
+        /* Tytuł tabeli realizowany przez <caption> (Tekst + Twoje dane ze zdjęcia) */
+        caption {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 10px;
+            color: black;
+            border: 4px solid rgb(210, 0, 0);
+            border-bottom: none;
+            background-color: white;
+        }
+
+        /* Wewnętrzne obramowanie komórek tabeli (1px w kolorze czerwonym) */
+        th, td {
+            border: 1px solid rgb(210, 0, 0);
+            padding: 10px;
+        }
+
+        /* Nagłówek tabeli z ciemnoniebieskim tłem i białym tekstem (jak na zdjęciu) */
+        th {
+            background-color: rgb(0, 0, 90);
+            color: white;
+            font-size: 15px;
+        }
+
+        /* Kryterium: Kolorowanie wierszy różnymi kolorami (Ciemny granat na górze i szarości jak na zdjęciu) */
+        .wiersz-ciemny { background-color: rgb(5, 5, 55); }
+        .wiersz-szary1 { background-color: rgb(90, 95, 110); }
+        .wiersz-szary2 { background-color: rgb(110, 115, 130); }
+        .wiersz-szary3 { background-color: rgb(125, 130, 145); }
+        .wiersz-szary4 { background-color: rgb(140, 145, 160); }
+        .wiersz-szary5 { background-color: rgb(155, 160, 175); }
+
+        /* Kryterium: Kolumny zapisane różnymi kolorami znaków (min. 3) i wielkościami (min. 2) */
+        /* Kryterium: Wyrównanie znaków w kolumnach (jedna do lewej, inna do prawej, inna wyśrodkowana) */
+        
+        .kol-lewo {
+            font-size: 16px;          /* Pierwsza wielkość czcionki */
+            text-align: left;         /* Wyrównanie do lewej */
+            font-weight: bold;
+        }
+        /* Dokładne odwzorowanie kolorów tekstu modeli kart ze zdjęcia */
+        .tekst-zolty { color: rgb(240, 240, 0); }
+        .tekst-zielony { color: rgb(100, 255, 100); }
+
+        .kol-prawo {
+            color: rgb(190, 200, 255); /* Pierwszy kolor czcionki w CSS (jasnoniebieski jak na fotce) */
+            font-size: 14px;           /* Druga wielkość czcionki */
+            text-align: right;         /* Wyrównanie do prawej */
+        }
+
+        .kol-srodek-czerwony {
+            color: rgb(255, 110, 110); /* Drugi kolor czcionki w CSS (jasnoczerwony jak na fotce) */
+            font-size: 14px;
+            text-align: center;        /* Wyrównanie wyśrodkowane */
+            font-weight: bold;
+        }
+
+        .kol-srodek-szary {
+            color: rgb(160, 170, 190);  /* Trzeci kolor czcionki w CSS (jasnoszary jak na fotce) */
+            font-size: 14px;
+            text-align: center;        /* Wyrównanie wyśrodkowane */
+        }
+
+        /* Stylizacja stopki tabeli (czarne tło z tekstem na środku) */
+        .stopka-tabeli {
+            background-color: rgb(40, 45, 55);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        /* Kryterium: Podaj źródło tabeli (pochyłe, podkreślone, czerwone, wielkość 6) */
+        .zrodlo-tekst {
+            font-style: italic;
+            text-decoration: underline;
+            color: red;
+            font-size: 24px; /* Wielkość 24px odpowiada rozmiarowi 6 w starej skali HTML */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <!-- Tytuł tabeli (Odwzorowana struktura ze zdjęcia z Twoimi danymi) -->
+        <caption>Dane komputerowe - Oleksii Malyshev 1p Grupa-1</caption>
+        
+        <!-- Sekcja nagłówka tabeli <thead> -->
+        <thead>
+            <tr>
+                <th>Model karty<br>graficznej</th>
+                <th>Taktowanie<br>bazowe</th>
+                <th>Rozmiar<br>pamięci</th>
+                <th>Szyna<br>pamięci</th>
+                <th>Typ<br>chłodzenia</th>
+            </tr>
+        </thead>
+
+        <!-- Sekcja danych tabeli <tbody> (Nowe, prawdziwe parametry spięte w styl ze zdjęcia) -->
+        <tbody>
+            <tr class="wiersz-ciemny">
+                <td class="kol-lewo tekst-zolty">RTX 4070 Ti</td>
+                <td class="kol-prawo">2310 MHz</td>
+                <td class="kol-srodek-czerwony">12 GB</td>
+                <td class="kol-srodek-szary">192-bit</td>
+                <!-- Kryterium: Połączenie komórek w pionie (dokładnie dwie komórki -> rowspan="2") -->
+                <td rowspan="2" style="background-color: rgb(170, 185, 205); color: black; text-align: center; font-size: 18px;">Aktywne</td>
+            </tr>
+            <tr class="wiersz-szary1">
+                <td class="kol-lewo tekst-zolty">RTX 4060 Ti</td>
+                <td class="kol-prawo">2310 MHz</td>
+                <td class="kol-srodek-czerwony">8 GB</td>
+                <td class="kol-srodek-szary">128-bit</td>
+                <!-- Komórka chłodzenia scalona z wiersza wyżej -->
+            </tr>
+            <tr class="wiersz-szary2">
+                <td class="kol-lewo tekst-zolty">RTX 3060</td>
+                <td class="kol-prawo">1320 MHz</td>
+                <td class="kol-srodek-czerwony">12 GB</td>
+                <td class="kol-srodek-szary">192-bit</td>
+                <!-- Kolejne połączenie komórek w pionie na 4 wiersze (dokładnie jak duży blok na fotce) -->
+                <td rowspan="4" style="background-color: rgb(170, 185, 205); color: black; text-align: center; font-size: 20px;">Aktywne</td>
+            </tr>
+            <tr class="wiersz-szary3">
+                <td class="kol-lewo tekst-zielony">GTX 1660 Super</td>
+                <td class="kol-prawo">1530 MHz</td>
+                <td class="kol-srodek-czerwony">6 GB</td>
+                <td class="kol-srodek-szary">192-bit</td>
+            </tr>
+            <tr class="wiersz-szary4">
+                <td class="kol-lewo tekst-zielony">GTX 1050 Ti</td>
+                <td class="kol-prawo">1290 MHz</td>
+                <td class="kol-srodek-czerwony">4 GB</td>
+                <td class="kol-srodek-szary">128-bit</td>
+            </tr>
+            <tr class="wiersz-szary5">
+                <td class="kol-lewo tekst-zielony">GTX 1650</td>
+                <td class="kol-prawo">1485 MHz</td>
+                <td class="kol-srodek-czerwony">4 GB</td>
+                <td class="kol-srodek-szary">128-bit</td>
+            </tr>
+        </tbody>
+
+        <!-- Sekcja stopki <tfoot> -->
+        <tfoot>
+            <tr class="stopka-tabeli">
+                <!-- Kryterium: Połączenie komórek w poziomie (colspan="5") -->
+                <td colspan="5">Dane komputerowe</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- Kryterium: Podaj źródło tabeli (pochyłe, podkreślone, czerwone, wielkość 6 w skali 1-7) -->
+    <p class="zrodlo-tekst">Źródło: Opracowanie własne na podstawie oficjalnej specyfikacji technicznej NVIDIA.</p>
+    <h1><b>Oleksii Malyshev #10 1p Grupa-1</b></h3>
+</body>
+</html>
