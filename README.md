@@ -110,7 +110,7 @@
 
     <table>
         <!-- Tytuł tabeli (Odwzorowana struktura ze zdjęcia z Twoimi danymi) -->
-        <caption>Dane komputerowe - Wojciech Ambroziak Jan 1p Grupa-1</caption>
+        <caption>Dane komputerowe - Oleksii Malyshev 1p Grupa-1</caption>
         
         <!-- Sekcja nagłówka tabeli <thead> -->
         <thead>
